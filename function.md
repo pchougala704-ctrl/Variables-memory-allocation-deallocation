@@ -326,3 +326,184 @@ display()
 
 > Functions can be composed together:
 > `main()` → `calculate()` → `save()` → `display()`
+
+
+
+---
+
+## 21. Function Calling Flow
+
+```python
+def multiply(a, b):
+    return a * b
+
+result = multiply(5, 4)
+print(result)
+```
+
+**Flow explanation:**
+
+1. `multiply(5, 4)` is called — Python jumps into the function body
+2. `a = 5`, `b = 4` are assigned
+3. `a * b` → `5 * 4` → `20` is computed
+4. `return` sends `20` back to the caller
+5. `result` stores `20`
+6. `print(result)` prints `20`
+
+---
+
+## 22. Functions are Objects
+
+```python
+def greet():
+    print("hello world")
+
+x = greet
+x()
+```
+
+> `x` now refers to the **function object** — it can be stored in a variable and called later.
+
+---
+
+## 23. Passing a Function to Another Function
+
+```python
+def square(x):
+    return x * x
+
+def process(function, value):
+    return function(value)
+
+print(process(square, 5))
+```
+
+> This introduces **Higher Order Functions** ⭐ — functions that accept other functions as arguments.
+
+---
+
+## 24. Lambda Functions
+
+```python
+square = lambda x: x * x
+print(square(5))
+```
+
+> `lambda` is an **anonymous function expression**, commonly used for small operations.
+
+**Example with `map`:**
+
+```python
+numbers = [1, 2, 3, 4]
+result = list(map(lambda x: x * 2, numbers))
+print(result)
+```
+
+---
+
+## 25. Recursion
+
+```python
+def countdown(n):
+    if n == 0:
+        return
+    print(n)
+    countdown(n - 1)
+
+countdown(5)
+```
+
+> A **recursive function** calls itself.
+> Every recursion must have a **base case** (`n == 0` here) to stop.
+
+---
+
+## 26. Function Documentation
+
+```python
+def add(a, b):
+    """Returns the sum of two numbers."""
+    return a + b
+
+print(add.__doc__)
+```
+
+> This introduces **professional Python habits** — always document your functions with a docstring.
+
+---
+
+## 27. Type Hints
+
+> For modern Python.
+
+```python
+def add(a: int, b: int) -> int:
+    return a + b
+```
+
+> Type hints communicate **intended types** to developers and tools.
+> Python generally does **not** enforce them automatically at runtime — they are for readability and tooling support.
+
+---
+
+## 28. A Practical Program — Smart Electricity Bill
+
+```python
+def calculate_bill(units):
+    if units <= 100:
+        amount = units * 2
+    elif units <= 200:
+        amount = 100 * 2 + (units - 100) * 4
+    else:
+        amount = 100 * 2 + 100 * 4 + (units - 200) * 6
+    return amount + 100
+
+units = int(input("enter units: "))
+bill = calculate_bill(units)
+print("bill", bill)
+```
+
+**Why did we create `calculate_bill` instead of writing everything in the main program?**
+
+- Separation of responsibility
+- Reusability
+- Easier testing
+- Readability
+- Easier maintenance
+
+---
+
+## 29. Function Design
+
+A good function generally has three parts: **input**, **processing**, and **output**.
+
+> `calculate_bill` is a perfect example of this pattern.
+
+---
+
+## 30. Do Not Create Giant Functions
+
+**Bad — one function doing everything:**
+
+```python
+def student_system():
+    # 200 lines
+    # input
+    # validation
+    # calculation
+    # database
+    # printing
+    pass
+```
+
+**Better — one function, one responsibility:**
+
+```python
+def get_student():       ...
+def calculate_student(): ...
+def validate_student():  ...
+def save_result():       ...
+def display_result():    ...
+```
+
+> This introduces the **Single Responsibility Principle** — each function does one thing and does it well.
