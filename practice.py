@@ -139,11 +139,86 @@
 
 
 
-def add(a, b):
-    return a + b
+# def add(a, b):
+#     return a + b
 
-def display():
-    result = add(10, 20)
-    print(result)
+# def display():
+#     result = add(10, 20)
+#     print(result)
 
-display()
+# display()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Python Rainbow Pattern
+# import turtle
+
+# pen = turtle.Turtle()
+# pen.speed(0)
+
+# colors = ["red", "blue", "green", "purple", "orange"]
+
+# for i in range(100):
+#     pen.color(colors[i % len(colors)])
+#     pen.forward(i * 5)
+#     pen.right(144)
+
+# turtle.done()
+
+
+
+
+
+
+
+
+
+
+# 🚗 Creative Python Program: Car Animation
+
+
+
+
+
+
+import turtle
+
+t = turtle.Turtle()
+t.speed(0)
+turtle.bgcolor("black")
+
+colors = ["cyan", "magenta", "yellow", "lime", "orange"]
+
+for i in range(150):
+    t.color(colors[i % 5])
+    t.forward(i * 1.2)
+    t.right(59)
+
+turtle.done()
+
