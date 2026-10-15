@@ -150,32 +150,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # Python Rainbow Pattern
 # import turtle
 
@@ -195,30 +169,55 @@
 
 
 
+# 🌌 Python Magic Spiral
+
+# import turtle
+
+# t = turtle.Turtle()
+# t.speed(0)
+# turtle.bgcolor("black")
+
+# colors = ["cyan", "magenta", "yellow", "lime", "orange"]
+
+# for i in range(150):
+#     t.color(colors[i % 5])
+#     t.forward(i * 1.2)
+#     t.right(59)
+
+# turtle.done()
 
 
 
 
 
-# 🚗 Creative Python Program: Car Animation
 
 
 
 
+# 🌸 Python Digital Flower Generator
 
 
-import turtle
 
-t = turtle.Turtle()
-t.speed(0)
-turtle.bgcolor("black")
+import time
 
-colors = ["cyan", "magenta", "yellow", "lime", "orange"]
+print("🌸 DIGITAL FLOWER GENERATOR 🌸\n")
+time.sleep(1)
 
-for i in range(150):
-    t.color(colors[i % 5])
-    t.forward(i * 1.2)
-    t.right(59)
+flower = [
+    "       🌸",
+    "    🌸 🌸 🌸",
+    "  🌸 🌸 🌸 🌸 🌸",
+    "    🌸 🌸 🌸",
+    "       🌸",
+    "       |",
+    "       |",
+    "      / \\",
+    "     /   \\",
+    "    🌿   🌿"
+]
 
-turtle.done()
+for line in flower:
+    print(line)
+    time.sleep(0.3)
 
+print("\n✨ A little flower, a little happiness! ✨")
