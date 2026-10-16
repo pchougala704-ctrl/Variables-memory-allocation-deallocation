@@ -198,26 +198,68 @@
 
 
 
-import time
+# import time
 
-print("🌸 DIGITAL FLOWER GENERATOR 🌸\n")
-time.sleep(1)
+# print("🌸 DIGITAL FLOWER GENERATOR 🌸\n")
+# time.sleep(1)
 
-flower = [
-    "       🌸",
-    "    🌸 🌸 🌸",
-    "  🌸 🌸 🌸 🌸 🌸",
-    "    🌸 🌸 🌸",
-    "       🌸",
-    "       |",
-    "       |",
-    "      / \\",
-    "     /   \\",
-    "    🌿   🌿"
-]
+# flower = [
+#     "       🌸",
+#     "    🌸 🌸 🌸",
+#     "  🌸 🌸 🌸 🌸 🌸",
+#     "    🌸 🌸 🌸",
+#     "       🌸",
+#     "       |",
+#     "       |",
+#     "      / \\",
+#     "     /   \\",
+#     "    🌿   🌿"
+# ]
 
-for line in flower:
-    print(line)
-    time.sleep(0.3)
+# for line in flower:
+#     print(line)
+#     time.sleep(0.3)
 
-print("\n✨ A little flower, a little happiness! ✨")
+# print("\n✨ A little flower, a little happiness! ✨")
+
+
+
+
+
+# Neon Spiral Art 🌀
+
+import turtle
+import colorsys
+
+# Create the screen
+screen = turtle.Screen()
+screen.bgcolor("black")
+screen.title("Neon Spiral Art 🌀")
+screen.setup(width=900, height=800)
+screen.colormode(1.0)
+screen.tracer(0)
+
+# Create the drawing turtle
+pen = turtle.Turtle()
+pen.speed(0)
+pen.pensize(2)
+pen.hideturtle()
+
+# Draw the neon spiral
+for i in range(360):
+    hue = (i / 360) % 1.0
+    color = colorsys.hsv_to_rgb(hue, 1.0, 1.0)
+
+    pen.pencolor(color)
+    pen.forward(i * 0.8)
+    pen.right(91)
+
+    # Update the drawing gradually
+    if i % 5 == 0:
+        screen.update()
+
+screen.update()
+
+# Keep the window open
+turtle.done()
+
