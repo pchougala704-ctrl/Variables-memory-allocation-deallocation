@@ -228,38 +228,113 @@
 
 # Neon Spiral Art 🌀
 
+# import turtle
+# import colorsys
+
+# # Create the screen
+# screen = turtle.Screen()
+# screen.bgcolor("black")
+# screen.title("Neon Spiral Art 🌀")
+# screen.setup(width=900, height=800)
+# screen.colormode(1.0)
+# screen.tracer(0)
+
+# # Create the drawing turtle
+# pen = turtle.Turtle()
+# pen.speed(0)
+# pen.pensize(2)
+# pen.hideturtle()
+
+# # Draw the neon spiral
+# for i in range(360):
+#     hue = (i / 360) % 1.0
+#     color = colorsys.hsv_to_rgb(hue, 1.0, 1.0)
+
+#     pen.pencolor(color)
+#     pen.forward(i * 0.8)
+#     pen.right(91)
+
+#     # Update the drawing gradually
+#     if i % 5 == 0:
+#         screen.update()
+
+# screen.update()
+
+# # Keep the window open
+# turtle.done()
+
+
+
+
+
+
 import turtle
-import colorsys
+import random
+import math
 
-# Create the screen
+# Create the drawing window
 screen = turtle.Screen()
+screen.setup(900, 700)
 screen.bgcolor("black")
-screen.title("Neon Spiral Art 🌀")
-screen.setup(width=900, height=800)
-screen.colormode(1.0)
-screen.tracer(0)
+screen.title("Galaxy Art Generator")
+screen.colormode(255)
 
-# Create the drawing turtle
 pen = turtle.Turtle()
-pen.speed(0)
-pen.pensize(2)
 pen.hideturtle()
+pen.speed(0)
+pen.penup()
 
-# Draw the neon spiral
-for i in range(360):
-    hue = (i / 360) % 1.0
-    color = colorsys.hsv_to_rgb(hue, 1.0, 1.0)
+# Galaxy color palette
+colors = [
+    (170, 90, 255),   # Purple
+    (90, 150, 255),   # Blue
+    (255, 110, 190),  # Pink
+    (120, 220, 255),  # Cyan
+    (255, 255, 255),  # White
+    (255, 190, 100)   # Golden
+]
 
-    pen.pencolor(color)
-    pen.forward(i * 0.8)
-    pen.right(91)
+# 1. Draw stars in space
+for _ in range(260):
+    x = random.randint(-440, 440)
+    y = random.randint(-330, 330)
+    size = random.choice([2, 2, 3, 4])
 
-    # Update the drawing gradually
-    if i % 5 == 0:
-        screen.update()
+    pen.goto(x, y)
+    pen.dot(size, random.choice(colors))
 
-screen.update()
+# 2. Create four spiral arms
+arms = 4
+points_per_arm = 190
 
-# Keep the window open
+for arm in range(arms):
+    offset = (2 * math.pi * arm) / arms
+
+    for i in range(points_per_arm):
+        angle = i * 0.085 + offset
+        radius = 5 + i * 1.05 + random.uniform(-8, 8)
+
+        x = radius * math.cos(angle) + random.uniform(-7, 7)
+        y = radius * math.sin(angle) * 0.68 + random.uniform(-7, 7)
+
+        pen.goto(x, y)
+        pen.dot(random.choice([2, 3, 3, 4, 5]),
+                random.choice(colors))
+
+# 3. Draw the glowing-looking galaxy center
+pen.goto(0, 0)
+pen.dot(34, (255, 240, 190))
+pen.dot(22, (255, 210, 240))
+pen.dot(10, (255, 255, 255))
+
+# 4. Add a title
+pen.goto(0, 300)
+pen.color("white")
+pen.write(
+    "GALAXY ART GENERATOR",
+    align="center",
+    font=("Arial", 20, "bold")
+)
+
+# Display the artwork
 turtle.done()
-
