@@ -343,73 +343,129 @@
 
 
 
-import time
+# import time
+# import random
+
+# print("\033[95m")
+# print("╔══════════════════════════════════╗")
+# print("║       ✨ MOOD MAGIC ✨           ║")
+# print("║     Your Feelings Universe       ║")
+# print("╚══════════════════════════════════╝")
+# print("\033[0m")
+
+# name = input("🌟 Enter your name: ")
+# text = input("💭 How are you feeling today? ").lower()
+
+# moods = {
+#     "HAPPY 😊": ["happy", "joy", "excited", "great", "wonderful"],
+#     "SAD 🌧️": ["sad", "lonely", "cry", "upset", "unhappy"],
+#     "ANGRY 🔥": ["angry", "mad", "furious", "annoyed"],
+#     "LOVE 💖": ["love", "lovely", "caring", "affection"],
+#     "FEAR 🌙": ["scared", "afraid", "nervous", "fear"],
+#     "CALM 🌿": ["calm", "peaceful", "relaxed", "chill"]
+# }
+
+# detected = [
+#     mood for mood, words in moods.items()
+#     if any(word in text.split() for word in words)
+# ]
+
+# print("\n🔮 Reading your mood...")
+# for i in range(3):
+#     print("✨ Discovering feelings" + "." * (i + 1))
+#     time.sleep(0.5)
+
+# if detected:
+#     mood = detected[0]
+# else:
+#     mood = "MYSTERY 🌈"
+
+# messages = {
+#     "HAPPY 😊": "Keep shining! Your smile makes a difference.",
+#     "SAD 🌧️": "Every storm passes. Be gentle with yourself.",
+#     "ANGRY 🔥": "Take a deep breath. You deserve some peace.",
+#     "LOVE 💖": "Spread kindness wherever you go.",
+#     "FEAR 🌙": "You can take things one small step at a time.",
+#     "CALM 🌿": "Protect your peace and enjoy this moment.",
+#     "MYSTERY 🌈": "Every feeling has a story. Keep exploring yours!"
+# }
+
+# print("\n" + "═" * 38)
+# print(f"  🌟 MOOD REPORT FOR {name.upper()} 🌟")
+# print("═" * 38)
+
+# print(f"\n  Your Mood: {mood}")
+# print(f"\n  💌 Message: {messages[mood]}")
+
+# score = random.randint(60, 100)
+# filled = score // 10
+
+# print("\n  ⚡ Mood Energy Meter")
+# print("  [" + "█" * filled + "░" * (10 - filled) + f"] {score}%")
+
+# print("\n  ✨ Your lucky color:", random.choice(
+#     ["Purple 💜", "Blue 💙", "Pink 🩷",
+#      "Green 💚", "Yellow 💛"]
+# ))
+
+# print("\n" + "🌈 " * 10)
+# print("       THANK YOU FOR SHARING! 💖")
+# print("🌈 " * 10)
+
+
+
+
+
+
+
+
+
+
+
+
 import random
+import time
+import os
 
-print("\033[95m")
-print("╔══════════════════════════════════╗")
-print("║       ✨ MOOD MAGIC ✨           ║")
-print("║     Your Feelings Universe       ║")
-print("╚══════════════════════════════════╝")
-print("\033[0m")
+os.system("cls" if os.name == "nt" else "clear")
 
-name = input("🌟 Enter your name: ")
-text = input("💭 How are you feeling today? ").lower()
-
-moods = {
-    "HAPPY 😊": ["happy", "joy", "excited", "great", "wonderful"],
-    "SAD 🌧️": ["sad", "lonely", "cry", "upset", "unhappy"],
-    "ANGRY 🔥": ["angry", "mad", "furious", "annoyed"],
-    "LOVE 💖": ["love", "lovely", "caring", "affection"],
-    "FEAR 🌙": ["scared", "afraid", "nervous", "fear"],
-    "CALM 🌿": ["calm", "peaceful", "relaxed", "chill"]
-}
-
-detected = [
-    mood for mood, words in moods.items()
-    if any(word in text.split() for word in words)
+colors = [
+    "\033[91m",  # Red
+    "\033[95m",  # Purple
+    "\033[94m",  # Blue
+    "\033[96m",  # Cyan
+    "\033[93m",  # Yellow
+    "\033[92m"   # Green
 ]
 
-print("\n🔮 Reading your mood...")
-for i in range(3):
-    print("✨ Discovering feelings" + "." * (i + 1))
-    time.sleep(0.5)
+reset = "\033[0m"
 
-if detected:
-    mood = detected[0]
-else:
-    mood = "MYSTERY 🌈"
+print("\n" + "=" * 45)
+print("       🌌 COSMIC GALAXY GENERATOR 🌌")
+print("=" * 45)
+print("\nGenerating your universe...\n")
 
-messages = {
-    "HAPPY 😊": "Keep shining! Your smile makes a difference.",
-    "SAD 🌧️": "Every storm passes. Be gentle with yourself.",
-    "ANGRY 🔥": "Take a deep breath. You deserve some peace.",
-    "LOVE 💖": "Spread kindness wherever you go.",
-    "FEAR 🌙": "You can take things one small step at a time.",
-    "CALM 🌿": "Protect your peace and enjoy this moment.",
-    "MYSTERY 🌈": "Every feeling has a story. Keep exploring yours!"
-}
+time.sleep(1)
 
-print("\n" + "═" * 38)
-print(f"  🌟 MOOD REPORT FOR {name.upper()} 🌟")
-print("═" * 38)
+for row in range(18):
+    line = ""
 
-print(f"\n  Your Mood: {mood}")
-print(f"\n  💌 Message: {messages[mood]}")
+    for col in range(55):
+        chance = random.random()
 
-score = random.randint(60, 100)
-filled = score // 10
+        if chance < 0.08:
+            symbol = random.choice(["✦", "*", "+", "."])
+            color = random.choice(colors)
+            line += color + symbol + reset
+        elif chance < 0.085:
+            line += "🌟"
+        else:
+            line += " "
 
-print("\n  ⚡ Mood Energy Meter")
-print("  [" + "█" * filled + "░" * (10 - filled) + f"] {score}%")
+    print(line)
+    time.sleep(0.08)
 
-print("\n  ✨ Your lucky color:", random.choice(
-    ["Purple 💜", "Blue 💙", "Pink 🩷",
-     "Green 💚", "Yellow 💛"]
-))
-
-print("\n" + "🌈 " * 10)
-print("       THANK YOU FOR SHARING! 💖")
-print("🌈 " * 10)
-
-
+print("\n" + "=" * 45)
+print("       ✨ YOUR UNIVERSE IS READY! ✨")
+print("       Keep dreaming. Keep creating.")
+print("=" * 45)
