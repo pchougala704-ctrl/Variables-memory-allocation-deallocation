@@ -423,49 +423,125 @@
 
 
 
-import random
-import time
-import os
+# import random
+# import time
+# import os
 
-os.system("cls" if os.name == "nt" else "clear")
+# os.system("cls" if os.name == "nt" else "clear")
+
+# colors = [
+#     "\033[91m",  # Red
+#     "\033[95m",  # Purple
+#     "\033[94m",  # Blue
+#     "\033[96m",  # Cyan
+#     "\033[93m",  # Yellow
+#     "\033[92m"   # Green
+# ]
+
+# reset = "\033[0m"
+
+# print("\n" + "=" * 45)
+# print("       🌌 COSMIC GALAXY GENERATOR 🌌")
+# print("=" * 45)
+# print("\nGenerating your universe...\n")
+
+# time.sleep(1)
+
+# for row in range(18):
+#     line = ""
+
+#     for col in range(55):
+#         chance = random.random()
+
+#         if chance < 0.08:
+#             symbol = random.choice(["✦", "*", "+", "."])
+#             color = random.choice(colors)
+#             line += color + symbol + reset
+#         elif chance < 0.085:
+#             line += "🌟"
+#         else:
+#             line += " "
+
+#     print(line)
+#     time.sleep(0.08)
+
+# print("\n" + "=" * 45)
+# print("       ✨ YOUR UNIVERSE IS READY! ✨")
+# print("       Keep dreaming. Keep creating.")
+# print("=" * 45)
+
+
+
+
+
+
+
+
+import turtle
+import random
+import math
+
+# 🌌 NEON FRACTAL FLOWER
+screen = turtle.Screen()
+screen.setup(900, 900)
+screen.bgcolor("#050816")
+screen.title("✨ Neon Fractal Universe")
+screen.tracer(0)
+
+pen = turtle.Turtle()
+pen.hideturtle()
+pen.speed(0)
 
 colors = [
-    "\033[91m",  # Red
-    "\033[95m",  # Purple
-    "\033[94m",  # Blue
-    "\033[96m",  # Cyan
-    "\033[93m",  # Yellow
-    "\033[92m"   # Green
+    "#00FFFF", "#FF00FF", "#8A2BE2",
+    "#00FF99", "#FFD700", "#FF4D6D",
+    "#7DF9FF"
 ]
 
-reset = "\033[0m"
+# Draw one beautiful petal
+def draw_petal(size, color):
+    pen.pencolor(color)
+    pen.pensize(1.5)
+    for _ in range(2):
+        pen.circle(size, 60)
+        pen.left(120)
+        pen.circle(size, 60)
+        pen.left(120)
 
-print("\n" + "=" * 45)
-print("       🌌 COSMIC GALAXY GENERATOR 🌌")
-print("=" * 45)
-print("\nGenerating your universe...\n")
+# Draw colorful flower layers
+for layer in range(7):
+    size = 35 + layer * 13
+    petals = 12 + layer * 4
 
-time.sleep(1)
+    for i in range(petals):
+        pen.penup()
+        pen.goto(0, 0)
+        pen.setheading(i * (360 / petals) + layer * 9)
+        pen.pendown()
 
-for row in range(18):
-    line = ""
+        draw_petal(size, colors[(i + layer) % len(colors)])
 
-    for col in range(55):
-        chance = random.random()
+# Draw glowing-style center rings
+for radius in range(15, 111, 12):
+    pen.penup()
+    pen.goto(0, -radius)
+    pen.setheading(0)
+    pen.pendown()
+    pen.pencolor(colors[(radius // 12) % len(colors)])
+    pen.pensize(2)
+    pen.circle(radius)
 
-        if chance < 0.08:
-            symbol = random.choice(["✦", "*", "+", "."])
-            color = random.choice(colors)
-            line += color + symbol + reset
-        elif chance < 0.085:
-            line += "🌟"
-        else:
-            line += " "
+# Add tiny colorful stars around the universe
+for _ in range(160):
+    x = random.randint(-420, 420)
+    y = random.randint(-420, 420)
 
-    print(line)
-    time.sleep(0.08)
+    if math.sqrt(x*x + y*y) > 200:
+        pen.penup()
+        pen.goto(x, y)
+        pen.pendown()
+        pen.pencolor(random.choice(colors))
+        pen.dot(random.randint(2, 5))
 
-print("\n" + "=" * 45)
-print("       ✨ YOUR UNIVERSE IS READY! ✨")
-print("       Keep dreaming. Keep creating.")
-print("=" * 45)
+screen.update()
+turtle.done()
