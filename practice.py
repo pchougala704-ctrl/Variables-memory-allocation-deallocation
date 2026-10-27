@@ -477,71 +477,97 @@
 
 
 
-import turtle
+# import turtle
+# import random
+# import math
+
+# # 🌌 NEON FRACTAL FLOWER
+# screen = turtle.Screen()
+# screen.setup(900, 900)
+# screen.bgcolor("#050816")
+# screen.title("✨ Neon Fractal Universe")
+# screen.tracer(0)
+
+# pen = turtle.Turtle()
+# pen.hideturtle()
+# pen.speed(0)
+
+# colors = [
+#     "#00FFFF", "#FF00FF", "#8A2BE2",
+#     "#00FF99", "#FFD700", "#FF4D6D",
+#     "#7DF9FF"
+# ]
+
+# # Draw one beautiful petal
+# def draw_petal(size, color):
+#     pen.pencolor(color)
+#     pen.pensize(1.5)
+#     for _ in range(2):
+#         pen.circle(size, 60)
+#         pen.left(120)
+#         pen.circle(size, 60)
+#         pen.left(120)
+
+# # Draw colorful flower layers
+# for layer in range(7):
+#     size = 35 + layer * 13
+#     petals = 12 + layer * 4
+
+#     for i in range(petals):
+#         pen.penup()
+#         pen.goto(0, 0)
+#         pen.setheading(i * (360 / petals) + layer * 9)
+#         pen.pendown()
+
+#         draw_petal(size, colors[(i + layer) % len(colors)])
+
+# # Draw glowing-style center rings
+# for radius in range(15, 111, 12):
+#     pen.penup()
+#     pen.goto(0, -radius)
+#     pen.setheading(0)
+#     pen.pendown()
+#     pen.pencolor(colors[(radius // 12) % len(colors)])
+#     pen.pensize(2)
+#     pen.circle(radius)
+
+# # Add tiny colorful stars around the universe
+# for _ in range(160):
+#     x = random.randint(-420, 420)
+#     y = random.randint(-420, 420)
+
+#     if math.sqrt(x*x + y*y) > 200:
+#         pen.penup()
+#         pen.goto(x, y)
+#         pen.pendown()
+#         pen.pencolor(random.choice(colors))
+#         pen.dot(random.randint(2, 5))
+
+# screen.update()
+# turtle.done()
+
+
+
+
+
+
+
 import random
-import math
 
-# 🌌 NEON FRACTAL FLOWER
-screen = turtle.Screen()
-screen.setup(900, 900)
-screen.bgcolor("#050816")
-screen.title("✨ Neon Fractal Universe")
-screen.tracer(0)
+secret = random.randint(1, 10)
+print("\n🌈✨ RAINBOW CHALLENGE ✨🌈")
+print("💜 Guess my secret number (1 to 10)!")
 
-pen = turtle.Turtle()
-pen.hideturtle()
-pen.speed(0)
+guess = int(input("\n🎯 Enter your guess: "))
 
-colors = [
-    "#00FFFF", "#FF00FF", "#8A2BE2",
-    "#00FF99", "#FFD700", "#FF4D6D",
-    "#7DF9FF"
-]
+if guess == secret:
+    print("\n🎉🌟 JACKPOT! YOU WON! 🌟🎉")
+    print("🏆 Score: 100 points!")
+elif abs(guess - secret) <= 2:
+    print("\n💛 So close! Almost a rainbow winner!")
+    print("🌈 Secret number:", secret)
+else:
+    print("\n💙 Nice try! Keep playing!")
+    print("✨ Secret number:", secret)
 
-# Draw one beautiful petal
-def draw_petal(size, color):
-    pen.pencolor(color)
-    pen.pensize(1.5)
-    for _ in range(2):
-        pen.circle(size, 60)
-        pen.left(120)
-        pen.circle(size, 60)
-        pen.left(120)
-
-# Draw colorful flower layers
-for layer in range(7):
-    size = 35 + layer * 13
-    petals = 12 + layer * 4
-
-    for i in range(petals):
-        pen.penup()
-        pen.goto(0, 0)
-        pen.setheading(i * (360 / petals) + layer * 9)
-        pen.pendown()
-
-        draw_petal(size, colors[(i + layer) % len(colors)])
-
-# Draw glowing-style center rings
-for radius in range(15, 111, 12):
-    pen.penup()
-    pen.goto(0, -radius)
-    pen.setheading(0)
-    pen.pendown()
-    pen.pencolor(colors[(radius // 12) % len(colors)])
-    pen.pensize(2)
-    pen.circle(radius)
-
-# Add tiny colorful stars around the universe
-for _ in range(160):
-    x = random.randint(-420, 420)
-    y = random.randint(-420, 420)
-
-    if math.sqrt(x*x + y*y) > 200:
-        pen.penup()
-        pen.goto(x, y)
-        pen.pendown()
-        pen.pencolor(random.choice(colors))
-        pen.dot(random.randint(2, 5))
-
-screen.update()
-turtle.done()
+print("\n💖 Thanks for playing! 💖")
