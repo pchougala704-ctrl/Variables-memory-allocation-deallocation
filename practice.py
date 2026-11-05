@@ -552,22 +552,55 @@
 
 
 
-import random
+# import random
 
-secret = random.randint(1, 10)
-print("\n🌈✨ RAINBOW CHALLENGE ✨🌈")
-print("💜 Guess my secret number (1 to 10)!")
+# secret = random.randint(1, 10)
+# print("\n🌈✨ RAINBOW CHALLENGE ✨🌈")
+# print("💜 Guess my secret number (1 to 10)!")
 
-guess = int(input("\n🎯 Enter your guess: "))
+# guess = int(input("\n🎯 Enter your guess: "))
 
-if guess == secret:
-    print("\n🎉🌟 JACKPOT! YOU WON! 🌟🎉")
-    print("🏆 Score: 100 points!")
-elif abs(guess - secret) <= 2:
-    print("\n💛 So close! Almost a rainbow winner!")
-    print("🌈 Secret number:", secret)
-else:
-    print("\n💙 Nice try! Keep playing!")
-    print("✨ Secret number:", secret)
+# if guess == secret:
+#     print("\n🎉🌟 JACKPOT! YOU WON! 🌟🎉")
+#     print("🏆 Score: 100 points!")
+# elif abs(guess - secret) <= 2:
+#     print("\n💛 So close! Almost a rainbow winner!")
+#     print("🌈 Secret number:", secret)
+# else:
+#     print("\n💙 Nice try! Keep playing!")
+#     print("✨ Secret number:", secret)
 
-print("\n💖 Thanks for playing! 💖")
+# print("\n💖 Thanks for playing! 💖")
+
+
+
+
+
+
+import time
+import os
+
+colors = [
+    "\033[91m", "\033[93m", "\033[92m",
+    "\033[96m", "\033[94m", "\033[95m"
+]
+reset = "\033[0m"
+
+rainbow = "🌈 R A I N B O W 🌈"
+
+for i in range(20):
+    os.system("cls" if os.name == "nt" else "clear")
+    
+    print("\n" * 3)
+    print(" " * i, end="")
+
+    for j, char in enumerate(rainbow):
+        print(colors[(i + j) % len(colors)] + char, end="")
+
+    print(reset)
+    print("\n" * 3)
+    print(" " * 15 + "✨ Spread Happiness ✨")
+
+    time.sleep(0.15)
+
+print("\n🌈 Have a colorful day! 💖")
